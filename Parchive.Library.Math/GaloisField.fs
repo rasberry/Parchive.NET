@@ -315,8 +315,7 @@ type Matrix(values:gfsymbol[,], table:Table) =
     static member (/) (a:Matrix, b:gfsymbol):Matrix =
         Matrix (Array2D.map (fun x -> x / b) (a.ToArray2D()), a.Table)
 
-[<RequireQualifiedAccess>]
-module Galois =
+module public Galois =
     /// Creates a galois matrix from sequence of sequences `s` and galois table `t`
     let matrix (s:seq<seq<int>>) (t:Table) :Matrix = ((Seq.map (fun s -> Seq.map (fun x -> gfsymbol(x, t)) s) s) |> array2D , t) |> Matrix
 

@@ -3,7 +3,7 @@
 open Parchive.Library.RecoveryMath.Galois
 
 /// PAR2 recovery module.
-module Recovery =
+module public Recovery =
     let private table = Table(16, 0x1100B)
 
     let private constants = [
@@ -24,7 +24,7 @@ module Recovery =
     /// <param name="constantIndex">The index of the constant to use. There are 32768 available constants.</param>
     /// <param name="exponent">The exponent of the recovery slice.</param>
     /// <returns>A collection of <see cref="int"/> with the new set of accumulated recovery data.</returns>
-    let acc (values:seq<int * int>) (constantIndex:int) (exponent:int) : seq<int> =
+    let public acc (values:seq<int * int>) (constantIndex:int) (exponent:int) : seq<int> =
         seq {
             for value in values do
                 match value with

@@ -140,7 +140,7 @@ namespace Parchive.Library.PAR2
                 }
             }
 
-            int sliceCount = 0;
+            //int sliceCount = 0;
             foreach (var file in files)
             {
                 using (var writer = new ParWriter(file.GetContentStreamAsync().Result))
